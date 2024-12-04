@@ -63,7 +63,7 @@ class GameScreen extends StatelessWidget {
             top: 300,
             child: GestureDetector(
               onTap: () {
-                gameService.addScore("Tzvetan", 100, 1);
+                gameService.addScore("Joueur", 100);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

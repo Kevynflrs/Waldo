@@ -4,8 +4,8 @@ import 'utils/storage.dart';
 class GameService {
   List<Score> _scores = [];
 
-  void addScore(String playerName, int score, int level) {
-    final newScore = Score(playerName: playerName, score: score, level: level, date: DateTime.now());
+  void addScore(String playerName, int score) {
+    final newScore = Score(playerName: playerName, score: score, date: DateTime.now());
     _scores.add(newScore);
     _saveScores();
   }
