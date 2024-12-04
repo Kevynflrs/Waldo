@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'game_service.dart';
 import 'game_page.dart';
+import 'rules_page.dart';
 
 class HomeScreen extends StatelessWidget {
   final GameService gameService;
@@ -59,7 +60,14 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20), // br
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RulesScreen(gameService: gameService),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red[400],
                 ),
