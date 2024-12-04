@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'game_service.dart';
-import 'score_page.dart';
+import 'result_page.dart';
 
 class GameScreen extends StatelessWidget {
   final GameService gameService;
@@ -27,7 +27,7 @@ class GameScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          ScoreScreen(gameService: gameService)),
+                          const ResultScreen()),
                 );
               },
               child: Image.asset('images/waldo.png', width: 50, height: 50),
