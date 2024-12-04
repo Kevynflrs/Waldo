@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'game_service.dart';
-import 'ScorePage.dart';
+import 'score_page.dart';
 
 class GameScreen extends StatelessWidget {
   final GameService gameService;
