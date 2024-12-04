@@ -6,7 +6,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final GameService _gameService = GameService();
 
-  MyApp({Key? key}) : super(key: key) {
+  MyApp({super.key}) {
     _gameService.loadScores();
   }
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   final GameService gameService;
 
-  const HomeScreen({Key? key, required this.gameService}) : super(key: key);
+  const HomeScreen({super.key, required this.gameService});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,8 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => GameScreen(gameService: gameService)),
+              MaterialPageRoute(
+                  builder: (context) => GameScreen(gameService: gameService)),
             );
           },
           child: const Text("Commencer le jeu"),
@@ -45,7 +46,7 @@ class HomeScreen extends StatelessWidget {
 class GameScreen extends StatelessWidget {
   final GameService gameService;
 
-  const GameScreen({Key? key, required this.gameService}) : super(key: key);
+  const GameScreen({super.key, required this.gameService});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,10 @@ class GameScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Trouve Charlie !')),
       body: Stack(
         children: [
-          Image.asset('assets/background.png', fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+          Image.asset('images/1.jpg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity),
           Positioned(
             left: 200,
             top: 300,
@@ -62,10 +66,12 @@ class GameScreen extends StatelessWidget {
                 gameService.addScore("Tzvetan", 100, 1);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ScoreScreen(gameService: gameService)),
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ScoreScreen(gameService: gameService)),
                 );
               },
-              child: Image.asset('assets/charlie.png', width: 50, height: 50),
+              child: Image.asset('images/waldo.png', width: 50, height: 50),
             ),
           ),
         ],
@@ -77,7 +83,7 @@ class GameScreen extends StatelessWidget {
 class ScoreScreen extends StatelessWidget {
   final GameService gameService;
 
-  const ScoreScreen({Key? key, required this.gameService}) : super(key: key);
+  const ScoreScreen({super.key, required this.gameService});
 
   @override
   Widget build(BuildContext context) {
