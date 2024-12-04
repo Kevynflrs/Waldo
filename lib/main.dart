@@ -96,7 +96,6 @@ class ScoreScreen extends StatelessWidget {
           final score = scores[index];
           return ListTile(
             title: Text('${score.playerName} - ${score.score} points'),
-            subtitle: Text('Niveau ${score.level}'),
           );
         },
       ),
