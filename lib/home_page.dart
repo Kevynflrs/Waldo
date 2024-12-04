@@ -9,18 +9,26 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Où est Charlie ?')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => GameScreen(gameService: gameService)),
-            );
-          },
-          child: const Text("Commencer le jeu"),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/8.jpg"), // <-- BACKGROUND IMAGE
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(
+      backgroundColor: Color.fromRGBO(0, 0, 0, 0.35),
+      body:Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GameScreen(gameService: gameService)),
+              );
+            },
+            child: const Text("Commencer le jeu"),
+          ),
         ),
       ),
     );
