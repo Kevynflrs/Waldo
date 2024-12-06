@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final int score;
+  final int totalTime;
+
+  const ResultScreen({super.key, required this.score, required this.totalTime});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Résultat'),
-      ),
+      appBar: AppBar(title: const Text('Résultat')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Bravo ! Vous avez trouvé Charlie !',
-              style: TextStyle(fontSize: 24),
-            ),
+            Text("Score final : $score"),
+            Text("Temps total : $totalTime s"),
             ElevatedButton(
               onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.pop(context);
               },
-              child: const Text('Retour à l\'accueil'),
+              child: const Text("Rejouer"),
             ),
           ],
         ),
