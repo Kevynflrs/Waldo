@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'game_service.dart';
 import 'game_page.dart';
-import 'rules_page.dart';
+import 'score_page.dart';
 
-class HomeScreen extends StatelessWidget {
+class SuccesScreen extends StatelessWidget {
   final GameService gameService;
 
-  const HomeScreen({super.key, required this.gameService});
+  const SuccesScreen({super.key, required this.gameService});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
                   const Text(
-                    "Where's Waldo ?",
+                    "Succes",
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,// épaisseur de la police
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.red[400],
                 ),
                 child: const Text(
-                  "Start Games",
+                  "Continue",
                   style: TextStyle(
                     color: Colors.white,
                     shadows: [
@@ -58,13 +58,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20), // br
+              const SizedBox(height: 70), // br
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RulesScreen(gameService: gameService),
+                      builder: (context) => ScoreScreen(gameService: gameService),
                     ),
                   );
                 },
@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.red[400],
                 ),
                 child: const Text(
-                  "Rules",
+                  "Score",
                   style: TextStyle(
                     color: Colors.white,
                     shadows: [
