@@ -1,25 +1,22 @@
-import 'models/score.dart';
-import 'utils/storage.dart';
+// import 'models/score.dart';
+// import 'utils/storage.dart';
 
 class GameService {
-  List<Score> _scores = [];
+  int _totalScore = 0; // Variable privée pour stocker le score total
 
-  void addScore(String playerName, int score) {
-    final newScore = Score(playerName: playerName, score: score, date: DateTime.now());
-    _scores.add(newScore);
-    _saveScores();
+  // Ajoute des points au score total
+  void addScore(String player, int score) {
+    _totalScore += score;
   }
 
-  List<Score> getScores() {
-    _scores.sort((a, b) => b.score.compareTo(a.score));
-    return _scores;
+  // Retourne le score total
+  int getScore() {
+    return _totalScore;
   }
 
-  void _saveScores() {
-    Storage.saveScores(_scores);
-  }
-
-  void loadScores() async {
-    _scores = await Storage.loadScores();
+  // Réinitialise le score (optionnel)
+  void resetScore() {
+    _totalScore = 0;
   }
 }
+
