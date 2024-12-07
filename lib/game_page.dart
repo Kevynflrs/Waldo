@@ -19,9 +19,9 @@ class _GameScreenState extends State<GameScreen> {
   bool charlieFound = false;
 
   final List<Map<String, double>> charlieCoordinates = [
-    {'x': 200, 'y': 200},
-    {'x': 400, 'y': 500},
-    {'x': 150, 'y': 600},
+    {'x': 135, 'y': 290},
+    {'x': 18, 'y': 328},
+    {'x': 260, 'y': 265},
   ];
 
   final TransformationController _viewTransformationController =
