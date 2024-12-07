@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'game_service.dart';
 import 'game_page.dart';
-import 'score_page.dart';
 
 class SuccesScreen extends StatelessWidget {
   final GameService gameService;
@@ -59,32 +58,32 @@ class SuccesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 70), // br
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScoreScreen(gameService: gameService),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red[400],
-                ),
-                child: const Text(
-                  "Score",
-                  style: TextStyle(
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 4.0,// flou
-                        color: Colors.black, // couleur de l'ombre
-                        offset: Offset(2, 2), // décalage de l'ombre
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => ScoreScreen(gameService: gameService),
+              //       ),
+              //     );
+              //   },
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: Colors.red[400],
+              //   ),
+              //   child: const Text(
+              //     "Score",
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //       shadows: [
+              //         Shadow(
+              //           blurRadius: 4.0,// flou
+              //           color: Colors.black, // couleur de l'ombre
+              //           offset: Offset(2, 2), // décalage de l'ombre
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
