@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   final GameService _gameService = GameService();
 
   MyApp({super.key}) {
-    _gameService.loadScores();
+    _gameService.getScore();
   }
 
   @override
