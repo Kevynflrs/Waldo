@@ -24,7 +24,8 @@ class _GameScreenState extends State<GameScreen> {
     {'x': 150, 'y': 600},
   ];
 
-  final TransformationController _viewTransformationController = TransformationController();
+  final TransformationController _viewTransformationController =
+      TransformationController();
 
   @override
   void initState() {
