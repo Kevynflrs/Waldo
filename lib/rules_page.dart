@@ -40,7 +40,7 @@ class RulesScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
-                  "Le but du jeu est simple : trouvez Waldo, caché dans l'image ! "
+                  "Le but du jeu est simple : trouvez Waldo, caché dans l'image !"
                   "Utilisez vos doigts pour zoomer et déplacer l'image afin d'explorer tous les détails. "
                   "Une fois que vous avez repéré Waldo, touchez-le pour terminer le niveau. "
                   "Plus vous avancez, plus les niveaux deviennent difficiles, avec des images plus grandes et Waldo mieux caché. "
