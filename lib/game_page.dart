@@ -19,9 +19,9 @@ class _GameScreenState extends State<GameScreen> {
   bool charlieFound = false;
 
   final List<Map<String, double>> charlieCoordinates = [
-    {'x': 200, 'y': 200},
-    {'x': 400, 'y': 500},
-    {'x': 150, 'y': 600},
+    {'x': 135, 'y': 290},
+    {'x': 18, 'y': 328},
+    {'x': 260, 'y': 265},
   ];
 
   final TransformationController _viewTransformationController =
@@ -120,51 +120,62 @@ class _GameScreenState extends State<GameScreen> {
     final charliePos = charlieCoordinates[level - 1];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Niveau $level'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text("Temps : $_elapsedTime s"),
+      body: Stack(
+        children: [
+          // Vue interactive avec l'image et la zone de Charlie
+          InteractiveViewer(
+            transformationController: _viewTransformationController,
+            panEnabled: true,
+            scaleEnabled: true,
+            minScale: 1.0,
+            maxScale: 5.0,
+            child: Stack(
+              children: [
+                // Image de fond
+                Image.asset(
+                  'images/$level.jpg',
+                  fit: BoxFit.scaleDown,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+                // Zone cliquable de Charlie
+                Positioned(
+                  left: charliePos['x']!,
+                  top: charliePos['y']!,
+                  child: GestureDetector(
+                    onTap: () {
+                      if (!charlieFound) onCharlieFound();
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      color: Colors.transparent,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Affichage du temps dans une div transparente
+          Positioned(
+            top: 16.0,
+            right: 16.0,
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Text(
+                "Temps : $_elapsedTime s",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
+              ),
             ),
           ),
         ],
-      ),
-      body: Center(
-        child: InteractiveViewer(
-          transformationController: _viewTransformationController,
-          panEnabled: true,
-          scaleEnabled: true,
-          minScale: 1.0,
-          maxScale: 5.0,
-          child: Stack(
-            children: [
-              // Image de fond
-              Image.asset(
-                'images/$level.jpg',
-                fit: BoxFit.scaleDown,
-                width: double.infinity,
-                height: double.infinity,
-              ),
-              // Zone cliquable de Charlie
-              Positioned(
-                left: charliePos['x']!,
-                top: charliePos['y']!,
-                child: GestureDetector(
-                  onTap: () {
-                    if (!charlieFound) onCharlieFound();
-                  },
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.transparent,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
