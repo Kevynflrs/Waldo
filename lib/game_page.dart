@@ -158,17 +158,17 @@ class _GameScreenState extends State<GameScreen> {
           ),
           // Affichage du temps dans une div transparente
           Positioned(
-            top: 16.0, // Ajustez pour positionner correctement
+            top: 16.0,
             right: 16.0,
             child: Container(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5), // Fond semi-transparent
+                color: Colors.black.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Text(
                 "Temps : $_elapsedTime s",
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                 ),

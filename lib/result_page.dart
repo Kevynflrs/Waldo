@@ -34,7 +34,7 @@ class ResultScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.min, // Ajuste la taille
                       children: [
                         Text(
                           "Score final : $score",
@@ -57,7 +57,7 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  // Bouton en dessous de la boîte
+                  // Bouton pour rejouer
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
