@@ -120,51 +120,62 @@ class _GameScreenState extends State<GameScreen> {
     final charliePos = charlieCoordinates[level - 1];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Niveau $level'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text("Temps : $_elapsedTime s"),
+      body: Stack(
+        children: [
+          // Vue interactive avec l'image et la zone de Charlie
+          InteractiveViewer(
+            transformationController: _viewTransformationController,
+            panEnabled: true,
+            scaleEnabled: true,
+            minScale: 1.0,
+            maxScale: 5.0,
+            child: Stack(
+              children: [
+                // Image de fond
+                Image.asset(
+                  'images/$level.jpg',
+                  fit: BoxFit.scaleDown,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+                // Zone cliquable de Charlie
+                Positioned(
+                  left: charliePos['x']!,
+                  top: charliePos['y']!,
+                  child: GestureDetector(
+                    onTap: () {
+                      if (!charlieFound) onCharlieFound();
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      color: Colors.transparent,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Affichage du temps dans une div transparente
+          Positioned(
+            top: 16.0, // Ajustez pour positionner correctement
+            right: 16.0,
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5), // Fond semi-transparent
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Text(
+                "Temps : $_elapsedTime s",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
+              ),
             ),
           ),
         ],
-      ),
-      body: Center(
-        child: InteractiveViewer(
-          transformationController: _viewTransformationController,
-          panEnabled: true,
-          scaleEnabled: true,
-          minScale: 1.0,
-          maxScale: 5.0,
-          child: Stack(
-            children: [
-              // Image de fond
-              Image.asset(
-                'images/$level.jpg',
-                fit: BoxFit.scaleDown,
-                width: double.infinity,
-                height: double.infinity,
-              ),
-              // Zone cliquable de Charlie
-              Positioned(
-                left: charliePos['x']!,
-                top: charliePos['y']!,
-                child: GestureDetector(
-                  onTap: () {
-                    if (!charlieFound) onCharlieFound();
-                  },
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.transparent,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
