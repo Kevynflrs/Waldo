@@ -44,15 +44,6 @@ class ResultScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          "Temps total : $totalTime s",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                       ],
                     ),
                   ),
