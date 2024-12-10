@@ -1,8 +1,5 @@
-// import 'models/score.dart';
-// import 'utils/storage.dart';
-
 class GameService {
-  int _totalScore = 0; // Variable privée pour stocker le score total
+  int _totalScore = 0;
 
   // Ajoute des points au score total
   void addScore(String player, int score) {
